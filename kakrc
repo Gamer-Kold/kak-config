@@ -31,6 +31,10 @@ map -docstring "change selection" global normal d '"_d'
 #Kak-Harpoon
 source plugins/kak-harpoon/harpoon.kak
 
+# LSP
+eval %sh{kak-lsp --kakoune -s $kak_session} 
+lsp-enable
+
 # Shortcut to quickly exit the editor
 define-command -docstring "save and quit" x "write-all; quit"
 
