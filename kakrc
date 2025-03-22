@@ -1,5 +1,5 @@
 # Set the colour scheme
-colorscheme solarized-dark
+colorscheme tomorrow-night
 # Width of a tab
 set-option global tabstop 4
 
@@ -7,7 +7,7 @@ set-option global tabstop 4
 set-option global indentwidth 4
 
 # Always keep one line and three columns displayed around the cursor
-set-option global scrolloff 1,3
+set-option global scrolloff 10,3
 
 # Display line numbers
 add-highlighter global/ number-lines -hlcursor -relative
@@ -29,10 +29,10 @@ map -docstring "change selection" global normal d '"_d'
 # source plugins
 
 #Kak-Harpoon
-source plugins/kak-harpoon/harpoon.kak
+# source plugins/kak-harpoon/harpoon.kak
 
 # LSP
-eval %sh{kak-lsp --kakoune -s $kak_session} 
+eval %sh{kak-lsp --kakoune}
 lsp-enable
 
 # Shortcut to quickly exit the editor
