@@ -9,6 +9,9 @@ set-option global indentwidth 4
 # Always keep one line and three columns displayed around the cursor
 set-option global scrolloff 10,3
 
+# very important change
+set-option global ui_options terminal_assistant=cat
+
 # Display line numbers
 add-highlighter global/ number-lines -hlcursor -relative
 
