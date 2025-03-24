@@ -19,7 +19,7 @@ add-highlighter global/ number-lines -hlcursor -relative
 add-highlighter global/ regex \h+$ 0:Error
 
 # Softwrap long lines
-add-highlighter global/ wrap -word -indent
+add-highlighter global/ wrap -word -indent -marker '>>>  '
 
 # Clipboard management mappings
 map -docstring "yank the selection into the clipboard" global user y "<a-|> xsel -i<ret>"
