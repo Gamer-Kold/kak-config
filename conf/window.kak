@@ -3,7 +3,7 @@
 declare-user-mode win
 map -docstring "window bindings" global user w ":enter-user-mode win<ret>"
 map -docstring "create a new kakoune window" global win n ":new<ret>"
-map -docstring "create a new terminal window" global win t ":repl-new<ret>"
+map -docstring "create a new terminal window" global win t ":terminal fish<ret>"
 map -docstring "open file picker" global win f ":open-yazi<ret>"
 
 define-command open-yazi %{
