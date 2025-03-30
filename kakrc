@@ -30,7 +30,7 @@ map -docstring "change selection" global normal c '"_c'
 map -docstring "change selection" global normal d '"_d'
 
 # Source the rest of the config
-source conf/window.kak
+source "%val{config}/conf/window.kak"
 
 # source plugins
 
