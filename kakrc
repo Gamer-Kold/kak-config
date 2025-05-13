@@ -19,15 +19,11 @@ add-highlighter global/ number-lines -hlcursor -relative
 add-highlighter global/ regex \h+$ 0:Error
 
 # Softwrap long lines
-add-highlighter global/ wrap -word -indent -marker '>>>  '
+add-highlighter global/ wrap -word -indent
 
 # Clipboard management mappings
 map -docstring "yank the selection into the clipboard" global user y "<a-|> xsel -i<ret>"
 map -docstring "paste the clipboard" global user p "<a-!> xsel<ret>"
-
-# Make it so that the change and delete commands do not write to the clipboard
-map -docstring "change selection" global normal c '"_c'
-map -docstring "change selection" global normal d '"_d'
 
 # Source the rest of the config
 source "%val{config}/conf/window.kak"
@@ -40,6 +36,18 @@ source "%val{config}/conf/window.kak"
 # LSP
 eval %sh{kak-lsp --kakoune}
 lsp-enable
+
+# OLS config
+hook -group lsp-filetype-odin global BufSetOption filetype=odin %{
+    set-option buffer lsp_servers %{
+        [ols]
+        args = []
+        root_globs = ["ols.json", "odinfmt.json", "*.odin", ".git", ".hg"]
+	}
+}
+map -docstring "enter lsp mode" global user l ":enter-user-mode lsp<ret>"
+map -docstring "enter lsp mode" global normal <a-k> ":lsp-hover<ret>"
+map -docstring "enter lsp mode" global normal <a-K> ":lsp-hover-buffer<ret>"
 
 # Shortcut to quickly exit the editor
 define-command -docstring "save and quit" x "write-all; quit"
