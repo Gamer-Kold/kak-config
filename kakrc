@@ -45,6 +45,13 @@ hook -group lsp-filetype-odin global BufSetOption filetype=odin %{
         root_globs = ["ols.json", "odinfmt.json", "*.odin", ".git", ".hg"]
 	}
 }
+hook -group lsp-filetype-html global BufSetOption filetype=html %{
+    set-option buffer lsp_servers %{
+        [superhtml]
+        root_globs = ["package.json", ".git", ".hg"]
+        args = ["lsp"]
+    }
+}
 map -docstring "enter lsp mode" global user l ":enter-user-mode lsp<ret>"
 map -docstring "enter lsp mode" global normal <a-k> ":lsp-hover<ret>"
 map -docstring "enter lsp mode" global normal <a-K> ":lsp-hover-buffer<ret>"
