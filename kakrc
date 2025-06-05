@@ -22,7 +22,7 @@ add-highlighter global/ regex \h+$ 0:Error
 add-highlighter global/ wrap -word -indent
 
 # Clipboard management mappings
-map -docstring "yank the selection into the clipboard" global user y "<a-|> xsel -i<ret>"
+map -docstring "yank the selection into the clipboard" global user y "<a-|> xsel -i -b<ret>"
 map -docstring "paste the clipboard" global user p "<a-!> xsel<ret>"
 
 # Source the rest of the config
