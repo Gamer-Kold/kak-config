@@ -22,8 +22,8 @@ add-highlighter global/ regex \h+$ 0:Error
 add-highlighter global/ wrap -word -indent
 
 # Clipboard management mappings
-map -docstring "yank the selection into the clipboard" global user y "<a-|> xsel -i -b<ret>"
-map -docstring "paste the clipboard" global user p "<a-!> xsel<ret>"
+map global user y "<a-|> xsel -i -b<ret>" -docstring "yank the selection into the clipboard"
+map global user p "<a-!> xsel<ret>"       -docstring "paste the clipboard"
 
 # Source the rest of the config
 source "%val{config}/conf/window.kak"
