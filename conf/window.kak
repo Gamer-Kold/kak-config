@@ -6,11 +6,13 @@ map -docstring "create a new kakoune window" global win n ":new<ret>"
 map -docstring "create a new terminal window" global win t ":terminal fish<ret>"
 map -docstring "open file picker" global win f ":open-yazi<ret>"
 
+#TODO: this breaks if you select more than one file in yazi
+
 define-command open-yazi %{
-    echo %sh{
-        rm /tmp/yazi-kak-files
-        echo $kak_opt_termcmd
-        printf "edit " | cat - /tmp/yazi-kak-files > $kak_command_fifo
+    edit %sh{
+        rm /tmp/yazi_kak_files
+        $(echo $kak_opt_termcmd) 'yazi --chooser-file=/tmp/yazi_kak_files'
+        cat /tmp/yazi_kak_files
     }
 }
 
